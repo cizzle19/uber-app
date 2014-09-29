@@ -1,0 +1,85 @@
+<!-- public/views/nerd.html -->
+
+<div class="row text-center">
+	<h1>Uber Web App</h1>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<div class="row" ng-repeat="nerd in listNerds track by nerd._id">
+			<div class="small-6 columns text-left">
+				{{nerd.name}}
+			</div>
+			<div class="small-6 columns text-right">
+				<i class="fa fa-pencil" ng-click="editNerd()"></i>
+				<i class="fa fa-times" ng-click="deleteNerd(nerd._id)"></i>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row text-center">
+	<div class="small-12 large-3 columns">
+		<input type="text" ng-model="newName"/>
+	</div>
+	<div class="small-12 large-9 columns">
+		<button ng-click="addNerd()">Add New</button>
+		<button ng-click="getUber()">Get Uber</button>
+		<button ng-click="getUberPrice()">Get Uber Price</button>
+		<button ng-click="getUberTime()">Get Uber Time</button>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<div class="row" ng-repeat="ub in uberData.products track by ub.product_id">
+			<div class="small-3 columns">
+				{{ub.capacity}}
+			</div>
+			<div class="small-3 columns">
+				{{ub.description}}
+			</div>
+			<div class="small-3 columns">
+				{{ub.display_name}}
+			</div>
+			<div class="small-3 columns">
+				<img ng-src="{{ub.image}}"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-6 columns" ng-repeat="ub in uberPrice.prices track by ub.product_id">
+		<div class="row">
+			<div class="small-12 columns">
+				{{ub.display_name}}
+			</div>
+			<div class="small-12 columns">
+				{{ub.estimate}}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row text-center">
+	<div class="row text-center" ng-show="uberTime.times.length > 0">
+			<div clas="small-12 columns">
+				<h5>The closest Uber based on your location!</h5>
+				<h6>Automatically updates every 30 seconds.</h6>
+			</div>
+	</div>
+	<div class="small-6 columns" ng-repeat="ub in uberTime.times track by ub.product_id">
+		<div class="row">
+			<div class="small-12 columns">
+				{{ub.display_name}}
+			</div>
+			<div class="small-12 columns">
+				The closest {{ub.display_name}} is {{ub.estimate | minute}} minute(s) away.
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	
+
+

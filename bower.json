@@ -1,0 +1,11 @@
+{
+	"name": "mean-demo",
+	"version": "1.0.0",
+	"dependencies": {
+		"foundation": "zurb/bower-foundation",
+		"font-awesome": "latest",
+		"animate.css": "latest",
+		"angular": "latest",
+		"angular-route": "latest"	
+	}
+}

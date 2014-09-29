@@ -1,0 +1,74 @@
+<!-- public/views/ubers.html -->
+
+<div class="row text-center">
+	<div class="row text-center" ng-show="uberTime.times.length > 0">
+			<div clas="small-12 columns">
+				<h5>The closest Uber based on your location!</h5>
+				<b ng-model="estimatedAddress">{{estimatedAddress}}</b>
+				<div class="row text-center">
+					<small>Estimated address powered by Google</small>
+				</div>
+				<h6>Automatically updates every 30 seconds.</h6>
+			</div>
+	</div>
+	<div class="small-6 columns" ng-repeat="ub in uberTime.times track by ub.product_id">
+		<div class="row">
+			<div class="small-12 columns">
+				{{ub.display_name}}
+			</div>
+			<div class="small-12 columns">
+				The closest {{ub.display_name}} is {{ub.estimate | minute}} minute(s) away.
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<div id="map-canvas" style="width:100%;height:300px"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="large-1 medium-1 columns hide-for-small">
+		<p></p>
+	</div>
+	<div class="small-12 medium-6 large-6 columns">
+		<input type="text" ng-model="address" placeholder="Destination"/>
+	</div>
+	<div class="small-12 medium-4 large-4 columns">
+		<button ng-click="addUber()">Add New</button>
+	</div>
+	<div class="large-1 medium-1 columns hide-for-small">
+		<p></p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+		<div class="row">
+			<div class="small-3 columns">
+				<b>Price</b>
+			</div>
+			<div class="small-7 columns">
+				<b>Destination</b>
+			</div>
+			<div class="small-2 columns">
+			</div>
+		</div>
+	</div>
+	<div class="small-12 columns">
+		<div class="row" ng-repeat="ub in listUbers track by ub._id">
+			<div class="small-3 columns">
+				{{ub.name}}
+			</div>
+			<div class="small-7 columns">
+				{{ub.address}}
+			</div>
+			<div class="small-2 columns">
+				<i class="fa fa-pencil" ng-click="editUber()"></i>
+				<i class="fa fa-times" ng-click="deleteUber(ub._id)"></i>
+			</div>
+		</div>
+	</div>
+</div>
