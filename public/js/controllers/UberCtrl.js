@@ -104,7 +104,7 @@ angular.module('UberCtrl', []).controller('UberController', function($scope, $ht
 
 	//use uber api to see what types of uber are available based on location
 	function getUber(latitude, longitude){
-		var uber = { 'server_token'	: 'MenhQioKFctRajzpYWXb-6o3ZKqW2ivvIm-8SdO0', 'latitude' : latitude, 'longitude' : longitude};
+		var uber = { 'server_token'	: 'API-KEY', 'latitude' : latitude, 'longitude' : longitude};
 
 		$http({
 			url: 'https://api.uber.com/v1/products',
@@ -120,7 +120,7 @@ angular.module('UberCtrl', []).controller('UberController', function($scope, $ht
 	//use uber api to see price of trip
 	function getUberPrice(start_lat, start_lng, end_lat, end_lng){
 		var uber = {
-			'server_token': 'MenhQioKFctRajzpYWXb-6o3ZKqW2ivvIm-8SdO0', 
+			'server_token': 'API-KEY', 
 			'start_latitude': start_lat, 
 			'start_longitude': start_lng, 
 			'end_latitude': end_lat,
@@ -141,7 +141,7 @@ angular.module('UberCtrl', []).controller('UberController', function($scope, $ht
 	//use uber api to see how long until next available driver will be
 	function getUberTime(start_lat, start_lng){
 		var uber = {
-			'server_token': 'MenhQioKFctRajzpYWXb-6o3ZKqW2ivvIm-8SdO0', 
+			'server_token': 'API-KEY', 
 			'start_latitude': start_lat, 
 			'start_longitude': start_lng 
 		};
